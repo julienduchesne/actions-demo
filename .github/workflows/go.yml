@@ -20,3 +20,17 @@ jobs:
       run: |
         go build -v .
         go test ./... -v
+        
+    - name: Hugo setup
+      uses: peaceiris/actions-hugo@v2.3.0
+      with:
+        extended: true
+        
+    - name: Hugo Build
+      run: hugo
+    
+    - name: GitHub Pages action
+      uses: peaceiris/actions-gh-pages@v2.5.1
+      with:
+        emptyCommits: false
+      
